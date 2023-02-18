@@ -1,0 +1,13 @@
+{
+  "license": "MIT License",
+  "type": "module",
+  "dependencies": {
+    "chatgpt": "^4.4.1",
+    "dotenv": "^16.0.3",
+    "telegraf": "^4.11.2",
+    "telegraf-session-local": "^2.1.1"
+  },
+  "nodemonConfig": {
+    "ignore": ["sessions.json", "example_db.json"]
+  }
+}

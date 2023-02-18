@@ -16,8 +16,9 @@ const chatgpt = new ChatGPTAPI({apiKey: process.env.OPENAI_TOKEN})
 // Handle start with authorization
 bot.command('/start', (ctx) => {
   const args = ctx.message.text.split(' ');
+  const auth = ctx.session.auth || null;
 
-  if (!args[1] || args[1] !== process.env.AUTH_KEY) {
+  if (!auth && args[1] !== process.env.AUTH_KEY) {
     return ctx.reply('Для начала общения необходимо авторизоваться.');
   }
 

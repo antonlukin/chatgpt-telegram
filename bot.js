@@ -52,11 +52,11 @@ bot.on(message('text'), async (ctx) => {
       }
 
       if (!message) {
-        message = await ctx.reply(partialResponse.text);
+        message = await ctx.reply(partialResponse.text + '…');
         return;
       }
 
-      await ctx.telegram.editMessageText(ctx.from.id, message.message_id, 0, partialResponse.text);
+      await ctx.telegram.editMessageText(ctx.from.id, message.message_id, 0, partialResponse.text + '…');
     }
 
     const result = await chatgpt.sendMessage(ctx.message.text, context);

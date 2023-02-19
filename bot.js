@@ -26,12 +26,23 @@ bot.command('/start', (ctx) => {
 
   welcome.push('Привет, это бот ChatGPT.');
   welcome.push('Вы можете общаться со мной на любые темы, сохраняя контекст дискуссии.');
-  welcome.push('Имейте в виду, я могу отвечать достаточно долго.');
+  welcome.push('Для сброса контекста диалога, введите команду /reset');
 
   ctx.session.auth = 1;
 
   ctx.reply(welcome.join(' '));
-})
+});
+
+// Handle reset command
+bot.command('/reset', (ctx) => {
+  if (!ctx.session.auth) {
+    return ctx.reply('Для начала общения необходимо авторизоваться.');
+  }
+
+  ctx.session.context = {};
+
+  ctx.reply('Контекст диалога сброшен.');
+});
 
 // Handle any text command
 bot.on(message('text'), async (ctx) => {

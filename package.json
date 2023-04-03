@@ -1,5 +1,5 @@
 {
-  "license": "MIT License",
+  "license": "MIT",
   "type": "module",
   "dependencies": {
     "chatgpt": "^4.4.1",
@@ -8,6 +8,9 @@
     "telegraf-session-local": "^2.1.1"
   },
   "nodemonConfig": {
-    "ignore": ["sessions.json", "example_db.json"]
+    "ignore": [
+      "sessions.json",
+      "example_db.json"
+    ]
   }
 }
